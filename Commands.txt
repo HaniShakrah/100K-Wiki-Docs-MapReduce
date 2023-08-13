@@ -1,0 +1,40 @@
+bin/hdfs namenode -format
+sbin/start-dfs.sh 
+sbin/start-yarn.sh
+
+cd ~/hadoop-2.6.5
+
+vim WordCount.java
+#paste code
+
+javac WordCount.java -cp $(hadoop classpath)
+
+jar cf wc.jar WordCount*.class
+
+bin/hdfs dfs -mkdir /input
+
+***I used WinSCP to copy input.txt from local machine to ~/hadoop-2.6.5
+
+bin/hdfs dfs -put input.txt /input/
+
+bin/hadoop jar wc.jar WordCount /input /output
+
+bin/hdfs dfs -get /output
+
+cd output
+cat part-r-00000
+
+#rename 
+mv part-r-00000 Top100 
+
+#relocate 
+mv Top100 ~/hadoop-2.6.5
+
+cd ~/hadoop-2.6.5
+
+vim CalculateRelativeFrequency.java
+#paste code 
+
+javac CalculateRelativeFrequency.java
+
+java CalculateRelativeFrequency

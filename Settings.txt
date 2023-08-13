@@ -1,0 +1,23 @@
+Mapper: 
+Input Key - LongWritable
+Input Value - Text
+Output Key - Text
+Output Value - IntWritable 
+
+Reducer: 
+Input Key - Text 
+Input Value - IntWritable
+Output Key - Text
+Output Value - IntWritable
+
+
+
+
+Fully Distributed Mode # of Instances: 2
+Pseudo Distributed Mode # of Instances: 1
+# of Mappers: 1
+# of Reducers: 1
+
+
+Running Time - Pseudo Distributed Mode: 89 s
+Running Time - Fully Distributed Mode: 51 s

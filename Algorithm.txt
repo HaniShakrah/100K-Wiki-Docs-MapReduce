@@ -1,0 +1,13 @@
+Algorithm: 
+
+CalculateTop100.java - 
+
+Mapper processes each line of input and tokenizes it into individual words. Each word is then checked to see if it contains only ASCII characters. Each word then emits as a key-value pair with value 1. 
+
+Reducer calculates sum of values for words that are the same. The results of word and sum of value (count) of Top100 words based on count are stored in a TreeMap 
+
+
+
+CalculateRelativeFrequency.java - 
+
+Store word pairs from "Top100" file, break up input.txt into words, check if words A and B are present in input.txt, keep count of cooccurrences, sort based on relative frequency, print top100 word pairs with relative frequencies
